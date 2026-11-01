@@ -1,0 +1,3 @@
+# Cài bằng lệnh:  pip install -r requirements.txt
+ultralytics>=8.4     # YOLO26: phát hiện + theo dõi vật thể (tự cài kèm opencv-python, numpy, torch)
+lap>=0.5.12          # cần cho tracking ở bài 04 (nếu thiếu, ultralytics sẽ tự cài giữa chừng)

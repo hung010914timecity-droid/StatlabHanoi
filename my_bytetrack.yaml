@@ -1,0 +1,26 @@
+# my_bytetrack.yaml — bản sao cài đặt ByteTrack để bạn tự chỉnh.
+# Dùng: trong 01_track_video.py đặt   TRACKER = "my_bytetrack.yaml"
+# Mỗi lần sửa một số thôi, chạy lại bài 01 rồi bài 02, so sánh số ID với lần trước.
+
+tracker_type: bytetrack
+
+# Độ tin cậy tối thiểu để một khung được ghép NGAY ở vòng 1 với người đã biết.
+track_high_thresh: 0.25
+
+# Vòng 2: khung "hơi mờ" (tin cậy từ mức này tới track_high_thresh) vẫn được thử ghép
+# với người đang bị mất. Đây là ý tưởng chính của ByteTrack: không vứt khung yếu đi.
+track_low_thresh: 0.1
+
+# Một khung không ghép được với ai, phải tin cậy từ mức này trở lên mới được cấp ID MỚI.
+# Tăng lên → ít ID "rác" hơn, nhưng người mới xuất hiện có thể nhận ID chậm hơn.
+new_track_thresh: 0.25
+
+# 🔧 THỬ SỬA: số frame tracker còn "nhớ" một người đã biến mất (bị che, ra khỏi khung).
+# Mặc định 30 frame ≈ 1 giây. Thử 90 (≈ 3 giây): người bị che lâu quay lại có giữ được ID cũ không?
+track_buffer: 30
+
+# Ngưỡng ghép cặp (càng gần 1 càng dễ ghép, càng nhỏ càng khắt khe).
+match_thresh: 0.8
+
+# Kết hợp độ tin cậy của khung khi ghép cặp.
+fuse_score: True
